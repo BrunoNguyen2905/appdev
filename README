@@ -1,1 +1,113 @@
 # this is the first version
+This project is to turn a Raspberry PI as an audio device.The
+device is able to do 2 functions: as a sound collector and as a
+test-tone generator.
+
+Table of Content:
+        1.Configuration Instructions
+        2.Installation Instructions
+        3.Operating Instructions
+        4.File list (Manifest)
+        5.Copyright / Copyleft
+        6.Contact Information
+        7.Credits and Acknowledgements
+
+1.Configuration Instructions
+-----------------------------
+
+	The application is running on a Raspberry Pi 3 model B.This Pi
+should come with a USB sound card, a network connection, a microphone.
+
+	1.1 16GB Micro SD card with Raspbian operating system.
+
+	1.2 Configure USB sound card as default audio device because Raspberry Pi onboard 
+sound card does not have microphone interface.Then you check if that USB is mounted or not.
+After configuring and setting up it, run "alsamixer" and you should be able to hear audio 
+through the USB sound card.
+
+
+	1.3 Install Libcurl library because it is a reliable and portable library which provides you 
+with an easy interface to a range of common Internet protocols as well as it is considered as 
+the most often used C-based multi-platform file transfer library.
+
+2.Installation Instructions
+---------------------------
+	* Insert the SD card and install Raspbian OS through this website:https://www.raspberrypi.org/downloads/noobs/
+and download "Noobs" image and remember to download ZIP file.
+
+	* For the first time boot, plug in your keyboard, mouse and monitor cable. Then, you disable a display with RPi
+because it will be more convinient and you don't use it in most cases. Furthermore, you also need to know its IP address 
+when using RPi remotely. For more information about NOOBS setup, you can find at: https://www.raspberrypi.org/help/noobs-setup/2/
+	
+	*Disassemble keyboard, mouse and monitor cable and plug them back in your computer.Then, insert USB sound card and microphone 
+	to the Raspberry Pi and connect RPi to a Internet domain by the RJ45 cable. After that, connect to power supply by Micro USB to USB cable. 
+	
+	*Using IP address sent by email to connect to the terminal.
+
+3.Operating Instructions
+------------------------
+	*Open the PUTTY terminal and logging in your IP address you recieved. So you "login as:" pi and enter your password.
+	*Get access to "appdev" folder by "cd appdev/" command. In "appdev", enter "cd appdev1/" command to access to appdev1 folder where all
+	the source code files are put in.
+	*There are many useful commands you need to know to easily get access to those file:
+		+"mkdir": Make a new folder
+		+ "ls -l": show the files of current folder in details 
+		+"cd..": Change to parent folder
+		+"cd $HOME": Change to the root folder of current user
+		+"rm": Delete a file or a number of files/folders
+		+"scp": Copy files from one host to another host
+		For more information, you can find at: http://www.circuitbasics.com/useful-raspberry-pi-commands/
+	*Compilling program by typing "make" command
+	*Run program by typing "./sound.out" command
+	*Using the microphone to sense the movement and the variation of the sound movement and find how many peaks the audio 
+device reaches.
+
+4.File list (Manifest)
+----------------------
+This project includes following files:
+	+README.txt: 
+		-This file contains information about other files in a directory or archive of computer software.
+	+makefile:
+		-This file is used to make file for program to run and other methods such as clean files or make .tar file
+	+screen.c
+		-This file contains functions about screen control and movement and bar chart display as well as clear screen
+		function.
+	+screen.h
+		-This is the header of screen.c and includes library, declaration and defination of constants and variables.
+	+sound.c
+		-This file contains functions to sense sound through microphone and calculation for dB as well as find number of peaks in  .wav file
+	+sound.h
+		-This is the header file of sound.c and includes library, declaration and defination of constants and variables.
+	+comm.c
+		-This file includes functions to send data to calculate 1 second of sound samples into 8-pieces of slow decibel(ISO standard) and use 
+		libcurl to send data to server.
+	+comm.h
+		-This is the header file for comm.c
+	+main.c
+		-This file is the operating file which call all other functions and execute in a typical order.
+	+curltest.c
+		-This file is used to transfer data from or to a server, using common Internet protocol.
+	+sound.php
+		-This file is kept in the server so that the server can receive the RMS values.
+
+5.Copyleft
+----------
+
+	This project is cooperated with an instructor: Mr.Gao Chao from Vaasa University of Applied Sciences.
+	I use Raspberry Pi 3 model B which is a device of Vaasa University of Applied Sciences.
+	All the source code files are free to use and distribute!
+
+6.Contact Information
+---------------------
+	Thien Nhan Nguyen, Departure of Information Technology
+	Vaasa University of Applied Sciences
+	Vuorikatu 14 B70, 65100 Vaasa, Finland.
+	If you have any questions about this project, please feel free to contact me through my email: nhannguyen290520@gmail.com
+
+7.Credits and Acknowledgements
+-------------------------------
+	After finishing this project which is considered as my first project and with the support from Mr. Gao Chao, I have learned a lot
+about the format as well as concepts development for a project. This is a premise for me to make other projects in the future.	
+	
+
+	
