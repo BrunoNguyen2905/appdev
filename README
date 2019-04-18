@@ -61,6 +61,7 @@ when using RPi remotely. For more information about NOOBS setup, you can find at
 	*Run program by typing "./sound.out" command
 	*Using the microphone to sense the movement and the variation of the sound movement and find how many peaks the audio 
 device reaches.
+	*For testTone generator, we use "./sound.out 440" command with 440 as frequency of testTone.wav file and then, that file is generated with that frequency.
 
 4.File list (Manifest)
 ----------------------
